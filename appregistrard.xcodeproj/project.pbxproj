@@ -1,0 +1,797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F49C63DC2C9E2B6C00D1F207 /* cryptex */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F49C63DD2C9E2B6C00D1F207 /* Build configuration list for PBXAggregateTarget "cryptex" */;
+			buildPhases = (
+				F49C63E22C9E2B9300D1F207 /* Setup Environment */,
+				F49C63E42C9E2D7100D1F207 /* Copy Binaries Into Cryptex Root */,
+				F49C63F52C9E336C00D1F207 /* Copy Launch Daemon Plists Into Cryptex Root */,
+				F49C63E32C9E2D2E00D1F207 /* Create Cryptex DMG */,
+				F49C63E72C9E2E5900D1F207 /* Package Cryptex */,
+			);
+			dependencies = (
+				F49C63E12C9E2B7500D1F207 /* PBXTargetDependency */,
+			);
+			name = cryptex;
+			packageProductDependencies = (
+			);
+			productName = cryptex;
+		};
+		F49C63E82C9E2FF100D1F207 /* installcryptex */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F49C63E92C9E2FF100D1F207 /* Build configuration list for PBXAggregateTarget "installcryptex" */;
+			buildPhases = (
+				F49C63F22C9E321000D1F207 /* Setup Environment */,
+				F49C63EE2C9E2FFC00D1F207 /* Personalize Cryptex */,
+				F49C63EF2C9E306600D1F207 /* Install Cryptex */,
+			);
+			dependencies = (
+				F49C63ED2C9E2FF700D1F207 /* PBXTargetDependency */,
+			);
+			name = installcryptex;
+			packageProductDependencies = (
+			);
+			productName = installcryptex;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */; };
+		F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = F49C63B32C9E16CE00D1F207 /* ArgumentParser */; };
+		F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63B62C9E17EB00D1F207 /* String+Error.swift */; };
+		F49C63BE2C9E183D00D1F207 /* MobileContainerManager.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */; };
+		F49C63BF2C9E183D00D1F207 /* MobileInstallation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */; };
+		F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */; };
+		F49C63C12C9E183D00D1F207 /* CoreServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63B92C9E183D00D1F207 /* CoreServices.tbd */; };
+		F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */; };
+		F49C63CA2C9E188C00D1F207 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63C92C9E188C00D1F207 /* ProcessHelper.swift */; };
+		F49C63CC2C9E18A300D1F207 /* Jindo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63CB2C9E18A300D1F207 /* Jindo.swift */; };
+		F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */; };
+		F49C63D12C9E199400D1F207 /* CryptexObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D02C9E199400D1F207 /* CryptexObserver.swift */; };
+		F49C63D32C9E19A600D1F207 /* AppRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D22C9E19A600D1F207 /* AppRegistration.swift */; };
+		F49C63D52C9E19D600D1F207 /* PathHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D42C9E19D500D1F207 /* PathHelpers.swift */; };
+		F49C63D72C9E1A5500D1F207 /* DaemonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */; };
+		F49C63DB2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */; };
+		F49C63E52C9E2D9A00D1F207 /* appregistrard in Copy Binaries Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F49C63982C9E15DB00D1F207 /* appregistrard */; };
+		F49C63F62C9E338600D1F207 /* codes.rambo.research.appregistrard.plist in Copy Launch Daemon Plists Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F49C63AC2C9E15DE00D1F207 /* codes.rambo.research.appregistrard.plist */; };
+		F49C63FB2C9E362300D1F207 /* JetsamBypass.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C63F82C9E362300D1F207 /* JetsamBypass.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F49C63E02C9E2B7500D1F207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49C63902C9E15DB00D1F207 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F49C63972C9E15DB00D1F207;
+			remoteInfo = appregistrard;
+		};
+		F49C63EC2C9E2FF700D1F207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49C63902C9E15DB00D1F207 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F49C63DC2C9E2B6C00D1F207;
+			remoteInfo = cryptex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F49C63E42C9E2D7100D1F207 /* Copy Binaries Into Cryptex Root */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = root/usr/bin;
+			dstSubfolderSpec = 16;
+			files = (
+				F49C63E52C9E2D9A00D1F207 /* appregistrard in Copy Binaries Into Cryptex Root */,
+			);
+			name = "Copy Binaries Into Cryptex Root";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F49C63F52C9E336C00D1F207 /* Copy Launch Daemon Plists Into Cryptex Root */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = root/Library/LaunchDaemons;
+			dstSubfolderSpec = 16;
+			files = (
+				F49C63F62C9E338600D1F207 /* codes.rambo.research.appregistrard.plist in Copy Launch Daemon Plists Into Cryptex Root */,
+			);
+			name = "Copy Launch Daemon Plists Into Cryptex Root";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F49C63982C9E15DB00D1F207 /* appregistrard */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = appregistrard; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		F49C63AA2C9E15DE00D1F207 /* appregistrard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appregistrard.entitlements; sourceTree = "<group>"; };
+		F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegistrar.swift; sourceTree = "<group>"; };
+		F49C63AC2C9E15DE00D1F207 /* codes.rambo.research.appregistrard.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = codes.rambo.research.appregistrard.plist; sourceTree = "<group>"; };
+		F49C63AD2C9E15DE00D1F207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49C63B62C9E17EB00D1F207 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
+		F49C63B92C9E183D00D1F207 /* CoreServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = CoreServices.tbd; sourceTree = "<group>"; };
+		F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileContainerManager.tbd; sourceTree = "<group>"; };
+		F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileInstallation.tbd; sourceTree = "<group>"; };
+		F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = RunningBoardServices.tbd; sourceTree = "<group>"; };
+		F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = SpringBoardServices.tbd; sourceTree = "<group>"; };
+		F49C63C32C9E185200D1F207 /* CoreServicesSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServicesSPI.h; sourceTree = "<group>"; };
+		F49C63C42C9E185200D1F207 /* MobileContainerManagerSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileContainerManagerSPI.h; sourceTree = "<group>"; };
+		F49C63C52C9E185200D1F207 /* MobileInstallationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileInstallationSPI.h; sourceTree = "<group>"; };
+		F49C63C62C9E185200D1F207 /* RunningBoardServicesSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunningBoardServicesSPI.h; sourceTree = "<group>"; };
+		F49C63C72C9E185200D1F207 /* SpringBoardServicesSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpringBoardServicesSPI.h; sourceTree = "<group>"; };
+		F49C63C82C9E187B00D1F207 /* CoreFoundationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreFoundationSPI.h; sourceTree = "<group>"; };
+		F49C63C92C9E188C00D1F207 /* ProcessHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHelper.swift; sourceTree = "<group>"; };
+		F49C63CB2C9E18A300D1F207 /* Jindo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jindo.swift; sourceTree = "<group>"; };
+		F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchAppProperties.swift; sourceTree = "<group>"; };
+		F49C63D02C9E199400D1F207 /* CryptexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexObserver.swift; sourceTree = "<group>"; };
+		F49C63D22C9E19A600D1F207 /* AppRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegistration.swift; sourceTree = "<group>"; };
+		F49C63D42C9E19D500D1F207 /* PathHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHelpers.swift; sourceTree = "<group>"; };
+		F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonServer.swift; sourceTree = "<group>"; };
+		F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Cryptex.swift"; sourceTree = "<group>"; };
+		F49C63F12C9E319F00D1F207 /* setupenv.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setupenv.sh; sourceTree = "<group>"; };
+		F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cryptex.xcconfig; sourceTree = "<group>"; };
+		F49C63F82C9E362300D1F207 /* JetsamBypass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetsamBypass.m; sourceTree = "<group>"; };
+		F49C63F92C9E362300D1F207 /* kern_memorystatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kern_memorystatus.h; sourceTree = "<group>"; };
+		F49C63FA2C9E362300D1F207 /* libproc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libproc.h; sourceTree = "<group>"; };
+		F49C63FC2C9E362800D1F207 /* JetsamBypass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JetsamBypass.h; sourceTree = "<group>"; };
+		F49C63FD2C9E37FE00D1F207 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F49C63952C9E15DB00D1F207 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49C63BE2C9E183D00D1F207 /* MobileContainerManager.tbd in Frameworks */,
+				F49C63BF2C9E183D00D1F207 /* MobileInstallation.tbd in Frameworks */,
+				F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */,
+				F49C63C12C9E183D00D1F207 /* CoreServices.tbd in Frameworks */,
+				F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */,
+				F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F49C638F2C9E15DB00D1F207 = {
+			isa = PBXGroup;
+			children = (
+				F49C63FD2C9E37FE00D1F207 /* README.md */,
+				F49C63F32C9E327D00D1F207 /* config */,
+				F49C63F02C9E319B00D1F207 /* scripts */,
+				F49C63AE2C9E15DE00D1F207 /* appregistrard */,
+				F49C63992C9E15DB00D1F207 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F49C63992C9E15DB00D1F207 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63982C9E15DB00D1F207 /* appregistrard */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F49C63A92C9E15DE00D1F207 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63C82C9E187B00D1F207 /* CoreFoundationSPI.h */,
+				F49C63C32C9E185200D1F207 /* CoreServicesSPI.h */,
+				F49C63C42C9E185200D1F207 /* MobileContainerManagerSPI.h */,
+				F49C63C52C9E185200D1F207 /* MobileInstallationSPI.h */,
+				F49C63C62C9E185200D1F207 /* RunningBoardServicesSPI.h */,
+				F49C63C72C9E185200D1F207 /* SpringBoardServicesSPI.h */,
+				F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F49C63AE2C9E15DE00D1F207 /* appregistrard */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63B82C9E182800D1F207 /* Stubs */,
+				F49C63A92C9E15DE00D1F207 /* Headers */,
+				F49C63B52C9E17E300D1F207 /* Core */,
+				F49C63CD2C9E193900D1F207 /* API */,
+				F49C63AA2C9E15DE00D1F207 /* appregistrard.entitlements */,
+				F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */,
+				F49C63AC2C9E15DE00D1F207 /* codes.rambo.research.appregistrard.plist */,
+				F49C63AD2C9E15DE00D1F207 /* Info.plist */,
+			);
+			path = appregistrard;
+			sourceTree = "<group>";
+		};
+		F49C63B52C9E17E300D1F207 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63F72C9E361D00D1F207 /* Jetsam */,
+				F49C63B62C9E17EB00D1F207 /* String+Error.swift */,
+				F49C63C92C9E188C00D1F207 /* ProcessHelper.swift */,
+				F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */,
+				F49C63D42C9E19D500D1F207 /* PathHelpers.swift */,
+				F49C63CB2C9E18A300D1F207 /* Jindo.swift */,
+				F49C63D02C9E199400D1F207 /* CryptexObserver.swift */,
+				F49C63D22C9E19A600D1F207 /* AppRegistration.swift */,
+				F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F49C63B82C9E182800D1F207 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63B92C9E183D00D1F207 /* CoreServices.tbd */,
+				F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */,
+				F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */,
+				F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */,
+				F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		F49C63CD2C9E193900D1F207 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F49C63F02C9E319B00D1F207 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63F12C9E319F00D1F207 /* setupenv.sh */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		F49C63F32C9E327D00D1F207 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		F49C63F72C9E361D00D1F207 /* Jetsam */ = {
+			isa = PBXGroup;
+			children = (
+				F49C63FC2C9E362800D1F207 /* JetsamBypass.h */,
+				F49C63F82C9E362300D1F207 /* JetsamBypass.m */,
+				F49C63F92C9E362300D1F207 /* kern_memorystatus.h */,
+				F49C63FA2C9E362300D1F207 /* libproc.h */,
+			);
+			path = Jetsam;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F49C63972C9E15DB00D1F207 /* appregistrard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F49C63A32C9E15DB00D1F207 /* Build configuration list for PBXNativeTarget "appregistrard" */;
+			buildPhases = (
+				F49C63942C9E15DB00D1F207 /* Sources */,
+				F49C63952C9E15DB00D1F207 /* Frameworks */,
+				F49C63962C9E15DB00D1F207 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = appregistrard;
+			packageProductDependencies = (
+				F49C63B32C9E16CE00D1F207 /* ArgumentParser */,
+			);
+			productName = appregistrard;
+			productReference = F49C63982C9E15DB00D1F207 /* appregistrard */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F49C63902C9E15DB00D1F207 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					F49C63972C9E15DB00D1F207 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					F49C63DC2C9E2B6C00D1F207 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					F49C63E82C9E2FF100D1F207 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = F49C63932C9E15DB00D1F207 /* Build configuration list for PBXProject "appregistrard" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F49C638F2C9E15DB00D1F207;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F49C63992C9E15DB00D1F207 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F49C63972C9E15DB00D1F207 /* appregistrard */,
+				F49C63DC2C9E2B6C00D1F207 /* cryptex */,
+				F49C63E82C9E2FF100D1F207 /* installcryptex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F49C63962C9E15DB00D1F207 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F49C63E22C9E2B9300D1F207 /* Setup Environment */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				$HOME/.zshrc,
+				"$(SRCROOT)/scripts/setupenv.sh",
+			);
+			name = "Setup Environment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "${SCRIPT_INPUT_FILE_1}\n";
+		};
+		F49C63E32C9E2D2E00D1F207 /* Create Cryptex DMG */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+				"$(BUILT_PRODUCTS_DIR)/root",
+			);
+			name = "Create Cryptex DMG";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "source $SCRIPT_INPUT_FILE_0\n\nDSTROOT=\"${SCRIPT_INPUT_FILE_1}\"\nDMG_PATH=\"${SCRIPT_OUTPUT_FILE_0}\"\n\nif [ -f \"${DMG_PATH}\" ]; then\n    rm \"${DMG_PATH}\"\nfi\n\nhdiutil create -fs hfs+ -srcfolder ${DSTROOT} ${DMG_PATH}\n";
+		};
+		F49C63E72C9E2E5900D1F207 /* Package Cryptex */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
+			);
+			name = "Package Cryptex";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} create --research --replace \\\n    -o ${BUILT_PRODUCTS_DIR} \\\n    --identifier=${PRODUCT_BUNDLE_IDENTIFIER} \\\n    --version=${MARKETING_VERSION} \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n";
+		};
+		F49C63EE2C9E2FFC00D1F207 /* Personalize Cryptex */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd",
+			);
+			name = "Personalize Cryptex";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd.signed",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} personalize --persist --replace \\\n    -o ${BUILT_PRODUCTS_DIR} \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n";
+		};
+		F49C63EF2C9E306600D1F207 /* Install Cryptex */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd.signed",
+				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
+			);
+			name = "Install Cryptex";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/installed.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} uninstall ${PRODUCT_BUNDLE_IDENTIFIER} || true\n\n${CRYPTEXCTL_PATH} install --persist \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n/usr/bin/shasum ${SCRIPT_INPUT_FILE_2} > ${SCRIPT_OUTPUT_FILE_0}\n";
+		};
+		F49C63F22C9E321000D1F207 /* Setup Environment */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				$HOME/.zshrc,
+				"$(SRCROOT)/scripts/setupenv.sh",
+			);
+			name = "Setup Environment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/cryptex_env",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "${SCRIPT_INPUT_FILE_1}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F49C63942C9E15DB00D1F207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49C63D32C9E19A600D1F207 /* AppRegistration.swift in Sources */,
+				F49C63FB2C9E362300D1F207 /* JetsamBypass.m in Sources */,
+				F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */,
+				F49C63CA2C9E188C00D1F207 /* ProcessHelper.swift in Sources */,
+				F49C63CC2C9E18A300D1F207 /* Jindo.swift in Sources */,
+				F49C63D52C9E19D600D1F207 /* PathHelpers.swift in Sources */,
+				F49C63DB2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift in Sources */,
+				F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */,
+				F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */,
+				F49C63D12C9E199400D1F207 /* CryptexObserver.swift in Sources */,
+				F49C63D72C9E1A5500D1F207 /* DaemonServer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F49C63E12C9E2B7500D1F207 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F49C63972C9E15DB00D1F207 /* appregistrard */;
+			targetProxy = F49C63E02C9E2B7500D1F207 /* PBXContainerItemProxy */;
+		};
+		F49C63ED2C9E2FF700D1F207 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F49C63DC2C9E2B6C00D1F207 /* cryptex */;
+			targetProxy = F49C63EC2C9E2FF700D1F207 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F49C63A42C9E15DB00D1F207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = appregistrard/appregistrard.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = appregistrard/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appregistrard/Stubs",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.appregistrard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = appregistrard/Headers/BridgingHeader.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F49C63A52C9E15DB00D1F207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = appregistrard/appregistrard.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = appregistrard/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appregistrard/Stubs",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.appregistrard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = appregistrard/Headers/BridgingHeader.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F49C63A62C9E15DB00D1F207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos.internal;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F49C63A72C9E15DB00D1F207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos.internal;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F49C63DE2C9E2B6C00D1F207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F49C63DF2C9E2B6C00D1F207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F49C63EA2C9E2FF100D1F207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F49C63EB2C9E2FF100D1F207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F49C63932C9E15DB00D1F207 /* Build configuration list for PBXProject "appregistrard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49C63A62C9E15DB00D1F207 /* Debug */,
+				F49C63A72C9E15DB00D1F207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49C63A32C9E15DB00D1F207 /* Build configuration list for PBXNativeTarget "appregistrard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49C63A42C9E15DB00D1F207 /* Debug */,
+				F49C63A52C9E15DB00D1F207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49C63DD2C9E2B6C00D1F207 /* Build configuration list for PBXAggregateTarget "cryptex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49C63DE2C9E2B6C00D1F207 /* Debug */,
+				F49C63DF2C9E2B6C00D1F207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F49C63E92C9E2FF100D1F207 /* Build configuration list for PBXAggregateTarget "installcryptex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49C63EA2C9E2FF100D1F207 /* Debug */,
+				F49C63EB2C9E2FF100D1F207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F49C63B32C9E16CE00D1F207 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F49C63902C9E15DB00D1F207 /* Project object */;
+}
