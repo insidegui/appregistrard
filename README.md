@@ -7,6 +7,7 @@ A daemon that can be installed to an SRD in order to allow for app installation 
 ## Requirements
 
 - Security Research Device running iOS 18.0 or later
+- [Research SDK](https://github.com/insidegui/researchsdk)
 
 ## How Does it Work?
 
