@@ -3,6 +3,7 @@ import OSLog
 
 final class CryptexObserver: NSObject {
     private let logger = Logger(subsystem: kAppRegistrarSubsystem, category: "CryptexObserver")
+    private let defaults = UserDefaults.standard
 
     private let cryptexMountRoot = URL(filePath: "/private/var/run/com.apple.security.cryptexd/mnt")
 
@@ -19,6 +20,8 @@ final class CryptexObserver: NSObject {
         self.mountHandler = mountHandler
 
         logger.debug("Activating cryptex observer")
+
+        self.knownCryptexMountPaths = loadPersistedCryptexMountPaths()
 
         enumerateMountedCryptexes()
 
@@ -50,6 +53,7 @@ final class CryptexObserver: NSObject {
                 guard !knownCryptexMountPaths.contains(candidate.path) else { continue }
 
                 knownCryptexMountPaths.insert(candidate.path)
+                persistCryptexMountPaths(knownCryptexMountPaths)
 
                 do {
                     let children = try manager.contentsOfDirectory(at: candidate, includingPropertiesForKeys: nil)
@@ -74,5 +78,26 @@ final class CryptexObserver: NSObject {
         } catch {
             logger.error("Error enumerating mounted cryptexes: \(error, privacy: .public)")
         }
+    }
+
+    // MARK: - Persistence
+
+    private let knownCryptexMountPathsKey = "knownCryptexMountPaths"
+
+    private func loadPersistedCryptexMountPaths() -> Set<String> {
+        guard let list = defaults.stringArray(forKey: knownCryptexMountPathsKey) else {
+            return []
+        }
+
+        logger.debug("Loaded \(list.count, privacy: .public) known cryptex mount paths")
+
+        return Set(list)
+    }
+
+    private func persistCryptexMountPaths(_ paths: Set<String>) {
+        logger.debug("Persisting \(paths.count, privacy: .public) known cryptex mount paths")
+
+        defaults.set(Array(paths), forKey: knownCryptexMountPathsKey)
+        defaults.synchronize()
     }
 }
