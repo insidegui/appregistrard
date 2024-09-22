@@ -1,4 +1,4 @@
 // These are shared by all cryptex-related aggregate targets
 
 PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.appregistrar.cryptex
-MARKETING_VERSION = 1.0.0
+MARKETING_VERSION = 1.0.1
