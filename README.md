@@ -4,6 +4,8 @@
 
 A daemon that can be installed to an SRD in order to allow for app installation within research cryptexes.
 
+![screenshot](./screenshot.jpg)
+
 ## Requirements
 
 - Security Research Device running iOS 18.0 or later
