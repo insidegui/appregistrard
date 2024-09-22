@@ -15,13 +15,23 @@
 		<string>/usr/bin/appregistrard</string>
 		<string>daemon</string>
 	</array>
+	<key>LaunchEvents</key>
+	<dict>
+		<key>com.apple.xpc.activity</key>
+		<dict/>
+		<key>com.apple.notifyd.matching</key>
+		<dict>
+			<key>com.apple.mobile.cryptex_mounted</key>
+			<dict>
+				<key>Notification</key>
+				<string>com.apple.mobile.cryptex_mounted</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>KeepAlive</key>
-	<dict>
-		<key>Crashed</key>
-		<true/>
-	</dict>
+	<true/>
 	<key>ThrottleInterval</key>
 	<integer>5</integer>
 	<key>ProcessType</key>
