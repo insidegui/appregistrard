@@ -8,7 +8,13 @@ final class DaemonServer {
 
     private let observer = CryptexObserver()
 
-    private var applicationsPath: String = "/System/Applications"
+    private var applicationsPath: String = {
+        if let customPath = ProcessInfo.processInfo.environment["CRYPTEX_APPLICATIONS_PATH"] {
+            return customPath
+        } else {
+            return "/System/Applications"
+        }
+    }()
 
     func activate(applicationsPath: String) {
         logger.notice("Daemon started 🥳")
