@@ -21,6 +21,24 @@ final class DaemonServer {
 
         enableJetsamBypass()
 
+        guard !DeviceLockStateObserver.State.current.unlockedSinceBoot else {
+            return activateAFU(applicationsPath: applicationsPath)
+        }
+
+        /// If the cryptex was initialized before first unlock, wait for first unlock before attempting any installs,
+        /// as those will inevitably fail on BFU state.
+        DeviceLockStateObserver.waitForFirstUnlock { [self] error in
+            if let error {
+                logger.fault("Failed to observe device first unlock for activation. \(error, privacy: .public)")
+            } else {
+                logger.notice("Device first unlock completed! Continuing daemon startup...")
+
+                activateAFU(applicationsPath: applicationsPath)
+            }
+        }
+    }
+
+    private func activateAFU(applicationsPath: String) {
         logger.info("Observing cryptex mounts, applications path is \(applicationsPath, privacy: .public)")
 
         do {

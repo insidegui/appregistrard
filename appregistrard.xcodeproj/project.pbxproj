@@ -11,11 +11,8 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = F49C63DD2C9E2B6C00D1F207 /* Build configuration list for PBXAggregateTarget "cryptex" */;
 			buildPhases = (
-				F49C63E22C9E2B9300D1F207 /* Setup Environment */,
 				F49C63E42C9E2D7100D1F207 /* Copy Binaries Into Cryptex Root */,
 				F49C63F52C9E336C00D1F207 /* Copy Launch Daemon Plists Into Cryptex Root */,
-				F49C63E32C9E2D2E00D1F207 /* Create Cryptex DMG */,
-				F49C63E72C9E2E5900D1F207 /* Package Cryptex */,
 			);
 			dependencies = (
 				F49C63E12C9E2B7500D1F207 /* PBXTargetDependency */,
@@ -25,25 +22,11 @@
 			);
 			productName = cryptex;
 		};
-		F49C63E82C9E2FF100D1F207 /* installcryptex */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = F49C63E92C9E2FF100D1F207 /* Build configuration list for PBXAggregateTarget "installcryptex" */;
-			buildPhases = (
-				F49C63F22C9E321000D1F207 /* Setup Environment */,
-				F49C63EE2C9E2FFC00D1F207 /* Personalize Cryptex */,
-				F49C63EF2C9E306600D1F207 /* Install Cryptex */,
-			);
-			dependencies = (
-				F49C63ED2C9E2FF700D1F207 /* PBXTargetDependency */,
-			);
-			name = installcryptex;
-			packageProductDependencies = (
-			);
-			productName = installcryptex;
-		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */; };
+		F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */; };
 		F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */; };
 		F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = F49C63B32C9E16CE00D1F207 /* ArgumentParser */; };
 		F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63B62C9E17EB00D1F207 /* String+Error.swift */; };
@@ -73,13 +56,6 @@
 			remoteGlobalIDString = F49C63972C9E15DB00D1F207;
 			remoteInfo = appregistrard;
 		};
-		F49C63EC2C9E2FF700D1F207 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F49C63902C9E15DB00D1F207 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F49C63DC2C9E2B6C00D1F207;
-			remoteInfo = cryptex;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,6 +84,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F48E44922DC1098000673486 /* MobileKeyBagSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileKeyBagSPI.h; sourceTree = "<group>"; };
+		F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLockStateObserver.swift; sourceTree = "<group>"; };
+		F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileKeyBag.tbd; sourceTree = "<group>"; };
 		F49C63982C9E15DB00D1F207 /* appregistrard */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = appregistrard; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		F49C63AA2C9E15DE00D1F207 /* appregistrard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appregistrard.entitlements; sourceTree = "<group>"; };
@@ -153,6 +132,7 @@
 				F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */,
 				F49C63C12C9E183D00D1F207 /* CoreServices.tbd in Frameworks */,
 				F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */,
+				F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */,
 				F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +168,7 @@
 				F49C63C52C9E185200D1F207 /* MobileInstallationSPI.h */,
 				F49C63C62C9E185200D1F207 /* RunningBoardServicesSPI.h */,
 				F49C63C72C9E185200D1F207 /* SpringBoardServicesSPI.h */,
+				F48E44922DC1098000673486 /* MobileKeyBagSPI.h */,
 				F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */,
 			);
 			path = Headers;
@@ -218,6 +199,7 @@
 				F49C63D42C9E19D500D1F207 /* PathHelpers.swift */,
 				F49C63CB2C9E18A300D1F207 /* Jindo.swift */,
 				F49C63D02C9E199400D1F207 /* CryptexObserver.swift */,
+				F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */,
 				F49C63D22C9E19A600D1F207 /* AppRegistration.swift */,
 				F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */,
 			);
@@ -232,6 +214,7 @@
 				F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */,
 				F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */,
 				F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */,
+				F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -310,9 +293,6 @@
 					F49C63DC2C9E2B6C00D1F207 = {
 						CreatedOnToolsVersion = 16.1;
 					};
-					F49C63E82C9E2FF100D1F207 = {
-						CreatedOnToolsVersion = 16.1;
-					};
 				};
 			};
 			buildConfigurationList = F49C63932C9E15DB00D1F207 /* Build configuration list for PBXProject "appregistrard" */;
@@ -334,7 +314,6 @@
 			targets = (
 				F49C63972C9E15DB00D1F207 /* appregistrard */,
 				F49C63DC2C9E2B6C00D1F207 /* cryptex */,
-				F49C63E82C9E2FF100D1F207 /* installcryptex */,
 			);
 		};
 /* End PBXProject section */
@@ -349,136 +328,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F49C63E22C9E2B9300D1F207 /* Setup Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				$HOME/.zshrc,
-				"$(SRCROOT)/scripts/setupenv.sh",
-			);
-			name = "Setup Environment";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "${SCRIPT_INPUT_FILE_1}\n";
-		};
-		F49C63E32C9E2D2E00D1F207 /* Create Cryptex DMG */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-				"$(BUILT_PRODUCTS_DIR)/root",
-			);
-			name = "Create Cryptex DMG";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "source $SCRIPT_INPUT_FILE_0\n\nDSTROOT=\"${SCRIPT_INPUT_FILE_1}\"\nDMG_PATH=\"${SCRIPT_OUTPUT_FILE_0}\"\n\nif [ -f \"${DMG_PATH}\" ]; then\n    rm \"${DMG_PATH}\"\nfi\n\nhdiutil create -fs hfs+ -srcfolder ${DSTROOT} ${DMG_PATH}\n";
-		};
-		F49C63E72C9E2E5900D1F207 /* Package Cryptex */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
-			);
-			name = "Package Cryptex";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} create --research --replace \\\n    -o ${BUILT_PRODUCTS_DIR} \\\n    --identifier=${PRODUCT_BUNDLE_IDENTIFIER} \\\n    --version=${MARKETING_VERSION} \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n";
-		};
-		F49C63EE2C9E2FFC00D1F207 /* Personalize Cryptex */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd",
-			);
-			name = "Personalize Cryptex";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd.signed",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} personalize --persist --replace \\\n    -o ${BUILT_PRODUCTS_DIR} \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n";
-		};
-		F49C63EF2C9E306600D1F207 /* Install Cryptex */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_BUNDLE_IDENTIFIER).cxbd.signed",
-				"$(BUILT_PRODUCTS_DIR)/cryptex.dmg",
-			);
-			name = "Install Cryptex";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/installed.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "source $SCRIPT_INPUT_FILE_0\n\n${CRYPTEXCTL_PATH} uninstall ${PRODUCT_BUNDLE_IDENTIFIER} || true\n\n${CRYPTEXCTL_PATH} install --persist \\\n    --variant=research \\\n    ${SCRIPT_INPUT_FILE_1}\n\n/usr/bin/shasum ${SCRIPT_INPUT_FILE_2} > ${SCRIPT_OUTPUT_FILE_0}\n";
-		};
-		F49C63F22C9E321000D1F207 /* Setup Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				$HOME/.zshrc,
-				"$(SRCROOT)/scripts/setupenv.sh",
-			);
-			name = "Setup Environment";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/cryptex_env",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "${SCRIPT_INPUT_FILE_1}\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		F49C63942C9E15DB00D1F207 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -490,6 +339,7 @@
 				F49C63CA2C9E188C00D1F207 /* ProcessHelper.swift in Sources */,
 				F49C63CC2C9E18A300D1F207 /* Jindo.swift in Sources */,
 				F49C63D52C9E19D600D1F207 /* PathHelpers.swift in Sources */,
+				F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */,
 				F49C63DB2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift in Sources */,
 				F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */,
 				F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */,
@@ -505,11 +355,6 @@
 			isa = PBXTargetDependency;
 			target = F49C63972C9E15DB00D1F207 /* appregistrard */;
 			targetProxy = F49C63E02C9E2B7500D1F207 /* PBXContainerItemProxy */;
-		};
-		F49C63ED2C9E2FF700D1F207 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F49C63DC2C9E2B6C00D1F207 /* cryptex */;
-			targetProxy = F49C63EC2C9E2FF700D1F207 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -630,7 +475,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos.internal;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.internal.sdk;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -687,7 +532,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos.internal;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.internal.sdk;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -704,26 +549,6 @@
 			name = Debug;
 		};
 		F49C63DF2C9E2B6C00D1F207 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7439RJLG;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		F49C63EA2C9E2FF100D1F207 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C7439RJLG;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		F49C63EB2C9E2FF100D1F207 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */;
 			buildSettings = {
@@ -759,15 +584,6 @@
 			buildConfigurations = (
 				F49C63DE2C9E2B6C00D1F207 /* Debug */,
 				F49C63DF2C9E2B6C00D1F207 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F49C63E92C9E2FF100D1F207 /* Build configuration list for PBXAggregateTarget "installcryptex" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F49C63EA2C9E2FF100D1F207 /* Debug */,
-				F49C63EB2C9E2FF100D1F207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
