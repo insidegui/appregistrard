@@ -11,12 +11,15 @@ final class CryptexObserver: NSObject {
 
     private var mountHandler: ((URL) -> Void)? = nil
 
-    func activate(mountHandler: @escaping (URL) -> Void) {
+    private var isPerBootSessionStorageEnabled: Bool = true
+
+    func activate(perBootSessionStorage: Bool = true, mountHandler: @escaping (URL) -> Void) {
         guard self.mountHandler == nil else {
             logger.fault("Attempting to activate more than once")
             return
         }
 
+        self.isPerBootSessionStorageEnabled = perBootSessionStorage
         self.mountHandler = mountHandler
 
         logger.debug("Activating cryptex observer")
@@ -82,9 +85,33 @@ final class CryptexObserver: NSObject {
 
     // MARK: - Persistence
 
+    private let bootSessionUUIDKey = "knownCryptexMountPathsBootSessionUUID"
     private let knownCryptexMountPathsKey = "knownCryptexMountPaths"
 
+    private func resetPersistedCryptexMountPathsIfNeeded() {
+        guard isPerBootSessionStorageEnabled else { return }
+        
+        guard let bootSessionUUID = currentBootSessionUUID() else {
+            logger.fault("Failed to read boot session UUID, cryptex paths list will never be reset.")
+            return
+        }
+
+        let storageBootSessionUUID = defaults.string(forKey: bootSessionUUIDKey)
+
+        guard storageBootSessionUUID != bootSessionUUID else {
+            return
+        }
+
+        logger.notice("Resetting persisted cryptex mount paths: running in new boot session \(bootSessionUUID, privacy: .public) (previous session: \(storageBootSessionUUID ?? "<nil>", privacy: .public)).")
+
+        defaults.set([String](), forKey: knownCryptexMountPathsKey)
+        defaults.set(bootSessionUUID, forKey: bootSessionUUIDKey)
+        defaults.synchronize()
+    }
+
     private func loadPersistedCryptexMountPaths() -> Set<String> {
+        resetPersistedCryptexMountPathsIfNeeded()
+
         guard let list = defaults.stringArray(forKey: knownCryptexMountPathsKey) else {
             return []
         }
@@ -99,5 +126,25 @@ final class CryptexObserver: NSObject {
 
         defaults.set(Array(paths), forKey: knownCryptexMountPathsKey)
         defaults.synchronize()
+    }
+
+    private func currentBootSessionUUID() -> String? {
+        let key = "kern.bootsessionuuid"
+        var size = 0
+
+        var err = sysctlbyname(key, nil, &size, nil, 0)
+        guard err == 0 else {
+            logger.fault("\(key) read failed with code \(err, privacy: .public)")
+            return nil
+        }
+
+        var buffer = [CChar](repeating: 0, count: size)
+        err = sysctlbyname(key, &buffer, &size, nil, 0)
+        guard err == 0 else {
+            logger.fault("\(key) read failed with code \(err, privacy: .public)")
+            return nil
+        }
+
+        return String(cString: buffer)
     }
 }
