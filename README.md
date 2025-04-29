@@ -23,17 +23,15 @@ Additionally, the daemon keeps running in the background and automatically insta
 within newly-installed cryptexes, so you can easily have small individual cryptexes for different apps, and `appregistrard` will
 automatically make sure those apps are installed when the cryptexes are mounted.
 
-A great way to easily install new apps via cryptexes is by using my [appcryptex](https://github.com/insidegui/appcryptex) template.
-Just clone the `appcryptex` repo, cd into it, then run `./install.sh path/to/your/app`. That will package the app as a standalone
-cryptex, personalize and install it. Assuming `appregistrard` is running, it will pick that up and register the app with the system,
-making its icon appear on SpringBoard.
-
 ## Build / Install Daemon
 
-You can build `appregistrard` from source or install the pre-built cryptex from the dmg in the repo's releases page.
+You can build a cryptex with `appregistrard` from the Xcode project by building the "cryptex" scheme.
 
-There is an aggregate target in the Xcode project that automatically builds/installs appregistrard via `cryptexctl`, but it has only
-been tested on my setup so it's possible it won't work for everyone.
+To install, after building the "cryptex" scheme in Xcode, run the provided `install` script, which will find the built root in Xcode's derived data and use `srdtool` to install the cryptex.
+
+Alternatively, download the pre-built cryptex root from [releases](https://github.com/insidegui/appregistrard/releases/latest), extract it and provide the path to the extracted `root` directory as the first argument to the `install` script.
+
+The script configures the `appregistrard` cryptex to persist across reboots. Any cryptexes with apps that are also persisted will have their applications installed by `appregistrard` upon first unlock.
 
 ## Customizing Behavior (optional)
 

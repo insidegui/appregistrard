@@ -6,26 +6,38 @@ then
     exit 1
 fi
 
-DERIVED_DIR=$(defaults read com.apple.dt.Xcode IDECustomDerivedDataLocation 2>/dev/null || echo "$HOME/Library/Developer/Xcode/DerivedData")
+ROOT_DIR="$1"
 
-BUILD_DIR=$(find "$DERIVED_DIR" -maxdepth 1 -name '*appregistrard*' | head -n 1)
-
-if [ -z "$BUILD_DIR" ]; then
-    echo "ERROR: Couldn't find appregistrard build directory in Xcode derived data. Did you build the \"cryptex\" target in Xcode?"
-    exit 1
+if [ ! -z "$ROOT_DIR" ]; then
+    if [ ! -d "$ROOT_DIR" ]; then
+        echo "ERROR: Cryptex root not found at $ROOT_DIR"
+        echo "If appregistrard was built from the Xcode project with the \"cryptex\" scheme, just run this script without any arguments and it will find the root."
+        exit 1
+    fi
+else
+    DERIVED_DIR=$(defaults read com.apple.dt.Xcode IDECustomDerivedDataLocation 2>/dev/null || echo "$HOME/Library/Developer/Xcode/DerivedData")
+    
+    BUILD_DIR=$(find "$DERIVED_DIR" -maxdepth 1 -name '*appregistrard*' | head -n 1)
+    
+    if [ -z "$BUILD_DIR" ]; then
+        echo "ERROR: Couldn't find appregistrard build directory in Xcode derived data. Did you build the \"cryptex\" target in Xcode?"
+        echo "Aternatively, provide the path to the cryptex root as the first argument to this script."
+        exit 1
+    fi
+    
+    ROOT_DIR="$BUILD_DIR/Build/Products/Debug-iphoneos/root"
+    
+    if [ ! -d "$ROOT_DIR" ]; then
+        echo "ERROR: Couldn't find built cryptex root directory in Xcode derived data. Did you build the \"cryptex\" target in Xcode?"
+        echo "Aternatively, provide the path to the cryptex root as the first argument to this script."
+        exit 1
+    fi
+    
+    BUNDLE_IDENTIFIER=$(plutil -p appregistrard.xcodeproj/project.pbxproj | grep PRODUCT_BUNDLE_IDENTIFIER | head -n 1 | cut -d \" -f 4 2>/dev/null || echo "codes.rambo.research.appregistrard")
 fi
-
-ROOT_DIR="$BUILD_DIR/Build/Products/Debug-iphoneos/root"
-
-if [ ! -d "$ROOT_DIR" ]; then
-    echo "ERROR: Couldn't find built cryptex root directory in Xcode derived data. Did you build the \"cryptex\" target in Xcode?"
-    exit 1
-fi
-
-BUNDLE_IDENTIFIER=$(plutil -p appregistrard.xcodeproj/project.pbxproj | grep PRODUCT_BUNDLE_IDENTIFIER | head -n 1 | cut -d \" -f 4 2>/dev/null || echo "codes.rambo.research.appregistrard")
 
 echo ""
 echo "Using srdtool to install cryptex $BUNDLE_IDENTIFIER from $ROOT_DIR"
 echo ""
 
-srdtool cryptex install -p -i "$BUNDLE_IDENTIFIER" "$ROOT_DIR"
+# srdtool cryptex install -p -i "$BUNDLE_IDENTIFIER" "$ROOT_DIR"

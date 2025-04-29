@@ -113,7 +113,6 @@
 		F49C63D42C9E19D500D1F207 /* PathHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHelpers.swift; sourceTree = "<group>"; };
 		F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonServer.swift; sourceTree = "<group>"; };
 		F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Cryptex.swift"; sourceTree = "<group>"; };
-		F49C63F12C9E319F00D1F207 /* setupenv.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setupenv.sh; sourceTree = "<group>"; };
 		F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cryptex.xcconfig; sourceTree = "<group>"; };
 		F49C63F82C9E362300D1F207 /* JetsamBypass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetsamBypass.m; sourceTree = "<group>"; };
 		F49C63F92C9E362300D1F207 /* kern_memorystatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kern_memorystatus.h; sourceTree = "<group>"; };
@@ -145,7 +144,6 @@
 			children = (
 				F49C63FD2C9E37FE00D1F207 /* README.md */,
 				F49C63F32C9E327D00D1F207 /* config */,
-				F49C63F02C9E319B00D1F207 /* scripts */,
 				F49C63AE2C9E15DE00D1F207 /* appregistrard */,
 				F49C63992C9E15DB00D1F207 /* Products */,
 			);
@@ -225,14 +223,6 @@
 				F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		F49C63F02C9E319B00D1F207 /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-				F49C63F12C9E319F00D1F207 /* setupenv.sh */,
-			);
-			path = scripts;
 			sourceTree = "<group>";
 		};
 		F49C63F32C9E327D00D1F207 /* config */ = {
@@ -366,7 +356,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appregistrard/Info.plist;
@@ -374,7 +364,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/appregistrard/Stubs",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.appregistrard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -395,7 +385,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appregistrard/Info.plist;
@@ -403,7 +393,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/appregistrard/Stubs",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.appregistrard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
