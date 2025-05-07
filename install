@@ -40,4 +40,4 @@ echo ""
 echo "Using srdtool to install cryptex $BUNDLE_IDENTIFIER from $ROOT_DIR"
 echo ""
 
-# srdtool cryptex install -p -i "$BUNDLE_IDENTIFIER" "$ROOT_DIR"
+srdtool cryptex install -p -i "$BUNDLE_IDENTIFIER" "$ROOT_DIR"
