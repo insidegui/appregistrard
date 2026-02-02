@@ -6,3 +6,4 @@
 #import "RunningBoardServicesSPI.h"
 #import "JetsamBypass.h"
 #import "MobileKeyBagSPI.h"
+#import "InstallCoordinationSPI.h"

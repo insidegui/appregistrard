@@ -25,6 +25,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F4257EEE2F2D3A7300CA45C5 /* InstallCoordination.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */; };
 		F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */; };
 		F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */; };
 		F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */; };
@@ -84,6 +85,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F4257EEC2F2D38B100CA45C5 /* InstallCoordinationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstallCoordinationSPI.h; sourceTree = "<group>"; };
+		F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = InstallCoordination.tbd; sourceTree = "<group>"; };
 		F48E44922DC1098000673486 /* MobileKeyBagSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileKeyBagSPI.h; sourceTree = "<group>"; };
 		F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLockStateObserver.swift; sourceTree = "<group>"; };
 		F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileKeyBag.tbd; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 				F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */,
 				F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */,
 				F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */,
+				F4257EEE2F2D3A7300CA45C5 /* InstallCoordination.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +171,7 @@
 				F49C63C62C9E185200D1F207 /* RunningBoardServicesSPI.h */,
 				F49C63C72C9E185200D1F207 /* SpringBoardServicesSPI.h */,
 				F48E44922DC1098000673486 /* MobileKeyBagSPI.h */,
+				F4257EEC2F2D38B100CA45C5 /* InstallCoordinationSPI.h */,
 				F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */,
 			);
 			path = Headers;
@@ -213,6 +218,7 @@
 				F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */,
 				F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */,
 				F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */,
+				F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -275,7 +281,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					F49C63972C9E15DB00D1F207 = {
 						CreatedOnToolsVersion = 16.1;
@@ -465,7 +471,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.internal.sdk;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.internal.sdk;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -522,7 +528,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.internal.sdk;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.internal.sdk;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

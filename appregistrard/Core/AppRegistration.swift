@@ -5,9 +5,12 @@ import notify
 import ArgumentParser
 
 struct AppRegistration {
+    fileprivate static let _logger = Logger(subsystem: kAppRegistrarSubsystem, category: "AppRegistration")
+
     let sourcePath: String
     var sourceIsAbsolutePath: Bool
     let destinationPath: String?
+    let useInstallCoordination: Bool
 
     func run() throws {
         let applicationsPath: String
@@ -73,7 +76,11 @@ struct AppRegistration {
             throw "No apps were installed"
         }
 
-        try runLaunchServices(urls: installedAppURLs)
+        if useInstallCoordination {
+            try runInstallCoordination(urls: installedAppURLs)
+        } else {
+            try runLaunchServices(urls: installedAppURLs)
+        }
     }
 
     private func runLaunchServices(urls: [URL]) throws {
@@ -96,6 +103,35 @@ struct AppRegistration {
         }
 
         Jindo.presentAppInstalledNotification(appNames: installedAppNames)
+    }
+
+    private func runInstallCoordination(urls: [URL]) throws {
+        Task {
+            var installedAppNames = [String]()
+
+            for url in urls {
+                do {
+                    let copyURL = try url.createInboxCopy()
+                    let inboxDir = copyURL.deletingLastPathComponent()
+
+                    defer {
+                        do {
+                            try FileManager.default.removeItem(at: inboxDir)
+                        } catch {
+                            logger.info("WARN: Error deleting temporary inbox copy directory at \(inboxDir.path, privacy: .public): \(error, privacy: .public)")
+                        }
+                    }
+
+                    await IXAppInstallCoordinator.installApplication(copyURL, forPersonaUniqueString: "PersonalPersonaPlaceholderString", consumeSource: true)
+
+                    installedAppNames.append(url.deletingPathExtension().lastPathComponent)
+                } catch {
+                    logger.error("Error processing \(url.lastPathComponent, privacy: .public): \(error, privacy: .public)")
+                }
+            }
+
+            Jindo.presentAppInstalledNotification(appNames: installedAppNames)
+        }
     }
 }
 
@@ -282,4 +318,36 @@ private extension Bundle {
 private extension URL {
     var isBundle: Bool { (try? resourceValues(forKeys: [.contentTypeKey]))?.contentType?.conforms(to: .bundle) == true }
     var isAppExtensionBundle: Bool { isBundle || lastPathComponent.lowercased() == "appex" }
+}
+
+// MARK: - Inbox Copy
+
+private extension URL {
+    static var appregistrardInboxDirectory: URL {
+        let url = URL(filePath: "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.installcoordinationd/Library/InstallCoordination/appregistrard")
+        if !FileManager.default.fileExists(atPath: url.absoluteURL.path(percentEncoded: false)) {
+            do {
+                try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                AppRegistration._logger.fault("Error creating inbox directory at \(url.path, privacy: .public): \(error, privacy: .public)")
+                return FileManager.default.temporaryDirectory
+            }
+        }
+        return url
+    }
+
+    func createInboxCopy() throws -> URL {
+        let copyContainer = Self.appregistrardInboxDirectory.appending(path: UUID().uuidString, directoryHint: .isDirectory)
+        try FileManager.default.createDirectory(at: copyContainer, withIntermediateDirectories: true)
+
+        let copyURL = copyContainer.appending(path: lastPathComponent)
+        try FileManager.default.copyItem(at: self, to: copyURL)
+
+        let err = chown(copyURL.absoluteURL.path(percentEncoded: false), 501, 501)
+        if err != 0 {
+            AppRegistration._logger.warning("Failed to chown \(copyURL.absoluteURL.path(percentEncoded: false), privacy: .public): \(err, privacy: .public)")
+        }
+
+        return copyURL
+    }
 }

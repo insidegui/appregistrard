@@ -15,13 +15,16 @@ struct RegistrarOptions: ParsableArguments {
 
     @Flag(help: "Treat path as an absolute path instead of a path within the current cryptex. Can be used to register apps that are not inside the cryptex.")
     var absolute = false
+
+    @Flag(inversion: .prefixedNo, help: "Enable/disable using InstallCoordination for installation.")
+    var installCoordination = true
 }
 
 @main
 struct AppRegistrar: ParsableCommand {
     static var configuration = CommandConfiguration(
         commandName: "appregistrard",
-        abstract: "The App Registrar Daemon can be run as a daemon so that it registers apps in the /System/Applications folder within mounted cryptexes, or as an on-demand command-line tool for dynamically registering applications with the system.",
+        abstract: "The App Registrar Daemon can be run as a daemon so that it registers apps in the /Applications and /System/Applications folders within mounted cryptexes, or as an on-demand command-line tool for dynamically registering applications with the system.",
         subcommands: [
             AppRegistrarDaemon.self,
             RegisterAppsCommand.self,
@@ -33,7 +36,7 @@ struct AppRegistrar: ParsableCommand {
 struct AppRegistrarDaemon: ParsableCommand {
     static var configuration = CommandConfiguration(
         commandName: "daemon",
-        abstract: "Runs appregistrard as a daemon, registering any apps found within /System/Applications on mounted cryptexes."
+        abstract: "Runs appregistrard as a daemon, registering any apps found within /Applications and /System/Applications on mounted cryptexes."
     )
 
     @OptionGroup
@@ -59,7 +62,8 @@ struct RegisterAppsCommand: ParsableCommand {
         let registration = AppRegistration(
             sourcePath: options.path,
             sourceIsAbsolutePath: options.absolute,
-            destinationPath: options.copyTo
+            destinationPath: options.copyTo,
+            useInstallCoordination: options.installCoordination
         )
         try registration.run()
     }
