@@ -41,7 +41,7 @@ struct HookInjection {
         var libraries: [String] = insertLibraries.components(separatedBy: ":")
         let previousLibraries = libraries
 
-        if let index = libraries.firstIndex(where: { $0.hasSuffix(dylibName) }) {
+        if let index = libraries.firstIndex(where: { $0.hasSuffix(dylibName + ".dylib") }) {
             if libraries[index] != installedDylibPath {
                 logger.debug("Found stale dylib path in DYLD_INSERT_LIBRARIES: \(libraries[index]), replacing with new one")
                 libraries[index] = installedDylibPath
