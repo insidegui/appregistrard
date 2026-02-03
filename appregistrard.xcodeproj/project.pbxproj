@@ -12,9 +12,11 @@
 			buildConfigurationList = F49C63DD2C9E2B6C00D1F207 /* Build configuration list for PBXAggregateTarget "cryptex" */;
 			buildPhases = (
 				F49C63E42C9E2D7100D1F207 /* Copy Binaries Into Cryptex Root */,
+				F4414E592F314F1D007076B5 /* Copy Dylib Into Cryptex Root */,
 				F49C63F52C9E336C00D1F207 /* Copy Launch Daemon Plists Into Cryptex Root */,
 			);
 			dependencies = (
+				F4414E582F314F15007076B5 /* PBXTargetDependency */,
 				F49C63E12C9E2B7500D1F207 /* PBXTargetDependency */,
 			);
 			name = cryptex;
@@ -26,6 +28,9 @@
 
 /* Begin PBXBuildFile section */
 		F4257EEE2F2D3A7300CA45C5 /* InstallCoordination.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */; };
+		F4414E5A2F314F27007076B5 /* libAppRegistrarHooks.dylib in Copy Dylib Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F4414E5F2F31519E007076B5 /* HookInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4414E5E2F315199007076B5 /* HookInjection.swift */; };
+		F44151EE2F327D44007076B5 /* LaunchKitLite in Frameworks */ = {isa = PBXBuildFile; productRef = F44151ED2F327D44007076B5 /* LaunchKitLite */; };
 		F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */; };
 		F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */; };
 		F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */; };
@@ -50,6 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F4414E572F314F15007076B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49C63902C9E15DB00D1F207 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4414E0C2F314C60007076B5;
+			remoteInfo = AppRegistrarHooks;
+		};
 		F49C63E02C9E2B7500D1F207 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F49C63902C9E15DB00D1F207 /* Project object */;
@@ -60,6 +72,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F4414E592F314F1D007076B5 /* Copy Dylib Into Cryptex Root */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = root/usr/lib;
+			dstSubfolderSpec = 16;
+			files = (
+				F4414E5A2F314F27007076B5 /* libAppRegistrarHooks.dylib in Copy Dylib Into Cryptex Root */,
+			);
+			name = "Copy Dylib Into Cryptex Root";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F49C63E42C9E2D7100D1F207 /* Copy Binaries Into Cryptex Root */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,6 +110,8 @@
 /* Begin PBXFileReference section */
 		F4257EEC2F2D38B100CA45C5 /* InstallCoordinationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstallCoordinationSPI.h; sourceTree = "<group>"; };
 		F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = InstallCoordination.tbd; sourceTree = "<group>"; };
+		F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libAppRegistrarHooks.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4414E5E2F315199007076B5 /* HookInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookInjection.swift; sourceTree = "<group>"; };
 		F48E44922DC1098000673486 /* MobileKeyBagSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileKeyBagSPI.h; sourceTree = "<group>"; };
 		F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLockStateObserver.swift; sourceTree = "<group>"; };
 		F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileKeyBag.tbd; sourceTree = "<group>"; };
@@ -124,11 +149,27 @@
 		F49C63FD2C9E37FE00D1F207 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F4414E0E2F314C60007076B5 /* AppRegistrarHooks */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppRegistrarHooks;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		F4414E0B2F314C60007076B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F49C63952C9E15DB00D1F207 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44151EE2F327D44007076B5 /* LaunchKitLite in Frameworks */,
 				F49C63BE2C9E183D00D1F207 /* MobileContainerManager.tbd in Frameworks */,
 				F49C63BF2C9E183D00D1F207 /* MobileInstallation.tbd in Frameworks */,
 				F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */,
@@ -149,6 +190,7 @@
 				F49C63FD2C9E37FE00D1F207 /* README.md */,
 				F49C63F32C9E327D00D1F207 /* config */,
 				F49C63AE2C9E15DE00D1F207 /* appregistrard */,
+				F4414E0E2F314C60007076B5 /* AppRegistrarHooks */,
 				F49C63992C9E15DB00D1F207 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F49C63982C9E15DB00D1F207 /* appregistrard */,
+				F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +248,7 @@
 				F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */,
 				F49C63D22C9E19A600D1F207 /* AppRegistration.swift */,
 				F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */,
+				F4414E5E2F315199007076B5 /* HookInjection.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -252,7 +296,39 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F4414E092F314C60007076B5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		F4414E0C2F314C60007076B5 /* AppRegistrarHooks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4414E1B2F314C60007076B5 /* Build configuration list for PBXNativeTarget "AppRegistrarHooks" */;
+			buildPhases = (
+				F4414E092F314C60007076B5 /* Headers */,
+				F4414E0A2F314C60007076B5 /* Sources */,
+				F4414E0B2F314C60007076B5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F4414E0E2F314C60007076B5 /* AppRegistrarHooks */,
+			);
+			name = AppRegistrarHooks;
+			packageProductDependencies = (
+			);
+			productName = AppRegistrarHooks;
+			productReference = F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		F49C63972C9E15DB00D1F207 /* appregistrard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F49C63A32C9E15DB00D1F207 /* Build configuration list for PBXNativeTarget "appregistrard" */;
@@ -268,6 +344,7 @@
 			name = appregistrard;
 			packageProductDependencies = (
 				F49C63B32C9E16CE00D1F207 /* ArgumentParser */,
+				F44151ED2F327D44007076B5 /* LaunchKitLite */,
 			);
 			productName = appregistrard;
 			productReference = F49C63982C9E15DB00D1F207 /* appregistrard */;
@@ -283,6 +360,10 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					F4414E0C2F314C60007076B5 = {
+						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2620;
+					};
 					F49C63972C9E15DB00D1F207 = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -302,6 +383,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F49C63992C9E15DB00D1F207 /* Products */;
@@ -310,6 +392,7 @@
 			targets = (
 				F49C63972C9E15DB00D1F207 /* appregistrard */,
 				F49C63DC2C9E2B6C00D1F207 /* cryptex */,
+				F4414E0C2F314C60007076B5 /* AppRegistrarHooks */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +408,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F4414E0A2F314C60007076B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F49C63942C9E15DB00D1F207 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +430,7 @@
 				F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */,
 				F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */,
 				F49C63D12C9E199400D1F207 /* CryptexObserver.swift in Sources */,
+				F4414E5F2F31519E007076B5 /* HookInjection.swift in Sources */,
 				F49C63D72C9E1A5500D1F207 /* DaemonServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +438,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F4414E582F314F15007076B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4414E0C2F314C60007076B5 /* AppRegistrarHooks */;
+			targetProxy = F4414E572F314F15007076B5 /* PBXContainerItemProxy */;
+		};
 		F49C63E12C9E2B7500D1F207 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F49C63972C9E15DB00D1F207 /* appregistrard */;
@@ -355,6 +451,47 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F4414E192F314C60007076B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64e;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
+				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.AppRegistrarHooks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4414E1A2F314C60007076B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64e;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
+				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.AppRegistrarHooks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F49C63A42C9E15DB00D1F207 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -557,6 +694,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F4414E1B2F314C60007076B5 /* Build configuration list for PBXNativeTarget "AppRegistrarHooks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4414E192F314C60007076B5 /* Debug */,
+				F4414E1A2F314C60007076B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F49C63932C9E15DB00D1F207 /* Build configuration list for PBXProject "appregistrard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -587,6 +733,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/insidegui/LaunchKit.git";
+			requirement = {
+				kind = revision;
+				revision = 3131e1ed1aad72886684d707aee2eda425a40aa5;
+			};
+		};
 		F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
@@ -598,6 +752,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F44151ED2F327D44007076B5 /* LaunchKitLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */;
+			productName = LaunchKitLite;
+		};
 		F49C63B32C9E16CE00D1F207 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

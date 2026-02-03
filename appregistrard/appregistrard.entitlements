@@ -134,5 +134,17 @@
 	</array>
 	<key>get-task-allow</key>
 	<true/>
+	<key>com.apple.private.xpc.launchd.userspace-reboot</key>
+	<true/>
+	<key>com.apple.private.xpc.persona-creator</key>
+	<true/>
+	<key>com.apple.private.xpc.service-attach</key>
+	<true/>
+	<key>com.apple.private.xpc.service-configure</key>
+	<true/>
+	<key>com.apple.private.xpc.domain-extension</key>
+	<true/>
+	<key>com.apple.private.xpc.launchd.app-server</key>
+	<true/>
 </dict>
 </plist>

@@ -44,6 +44,13 @@ final class DaemonServer {
     }
 
     private func activateAFU(applicationsPath: String) {
+        do {
+            /// Inject `libAppRegistrarHooks.dylib` into installd to allow ad-hoc signature validation.
+            try HookInjection.enable()
+        } catch {
+            logger.fault("Error enabling dylib injection for installd: \(error, privacy: .public)")
+        }
+
         logger.info("Observing cryptex mounts, applications path is \(applicationsPath, privacy: .public)")
 
         do {

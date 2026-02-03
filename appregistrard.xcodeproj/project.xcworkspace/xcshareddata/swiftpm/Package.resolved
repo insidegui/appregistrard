@@ -1,6 +1,14 @@
 {
-  "originHash" : "59ba1edda695b389d6c9ac1809891cd779e4024f505b0ce1a9d5202b6762e38a",
+  "originHash" : "a7f14bd4a38889a34ef28e3d304670a94ea3baab427bb3ec48d50b36943f50c3",
   "pins" : [
+    {
+      "identity" : "launchkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/insidegui/LaunchKit.git",
+      "state" : {
+        "revision" : "3131e1ed1aad72886684d707aee2eda425a40aa5"
+      }
+    },
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
