@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+if ! command -v srdtool &>/dev/null
+then
+    echo "ERROR: srdtool command not in PATH"
+    exit 1
+fi
+
+CRYPTEX_ID=
+if [ -z "$1" ]; then
+    CRYPTEX_ID=$(srdtool cryptex list | grep appregistrar | head -n1)
+else
+    CRYPTEX_ID=$1
+fi
+
+if [ -z "$CRYPTEX_ID" ]; then
+    echo "ERROR: Couldn't find appregistrar cryptex on device. If you're using a different cryptex ID, please specify it in the first argument."
+    exit 1
+fi
+
+echo "Disabling libAppRegistrarHooks injection"
+
+srdtool research launchctl withdraw -u libAppRegistrarHooks
+
+srdtool research builtin ls /private/var/db/com.apple.securityresearchd/lib/libAppRegistrarHooks >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Deleting libAppRegistrarHooks"
+    srdtool research builtin rm /private/var/db/com.apple.securityresearchd/lib/libAppRegistrarHooks
+fi
+
+echo "Uninstalling cryptex $CRYPTEX_ID"
+
+srdtool cryptex uninstall $CRYPTEX_ID
