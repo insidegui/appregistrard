@@ -91,35 +91,49 @@ os_log_t logger(void)
 
         os_log_debug(log, "Checking if %@ is adhoc-signed...", bundleName);
 
-        BOOL isAdHoc = [CodeSigningHelper isAdHocSignedBundleAtURL:bundle.bundleURL];
+        /// Skip personalization when app has the `.appregistrard` marker, which is the case when the daemon is registering apps
+        /// within a cryptex, which will already have a corresponding trust cache loaded via the cryptex itself.
+        NSURL *appregistrarMarkerURL = [bundle.bundleURL URLByAppendingPathComponent:AppRegistrarConstants.appregistrarMarkerFileName];
+        BOOL hasAppRegistrarMarker = [NSFileManager.defaultManager fileExistsAtPath:appregistrarMarkerURL.path];
 
-        if (!isAdHoc) {
+        /// Continue regular install flow unless the app is adhoc or it has the appregistrar marker.
+        BOOL isAdHoc = [CodeSigningHelper isAdHocSignedBundleAtURL:bundle.bundleURL];
+        if (!hasAppRegistrarMarker && !isAdHoc) {
             os_log(log, "%@ is not adhoc-signed, proceeding with regular installd flow...", bundleName);
             return [self __original_performVerificationWithError:outError];
         }
 
-        NSURL *trustCacheURL = [bundle.bundleURL URLByAppendingPathComponent:@"trustcache.img4"];
-
-        TrustCacheFSRequest *request;
-
-        if ([NSFileManager.defaultManager fileExistsAtPath:trustCacheURL.path]) {
-            os_log(log, "Found trust cache for %{public}@, requesting load...", bundleName);
-
-            request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionLoad bundleURL:bundle.bundleURL trustCacheURL:trustCacheURL];
-        } else {
-            os_log(log, "No trust cache found, performing full chain for %@...", bundleName);
-
-            request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionFullChain bundleURL:bundle.bundleURL trustCacheURL:nil];
+        if (!isAdHoc && hasAppRegistrarMarker) {
+            os_log(log, "%@ is not adhoc-signed, but it has the appregistrad marker, so will handle it here.", bundleName);
         }
 
-        NSError *trustCacheError;
-        if ([request performAndWaitSyncAndReturnError:&trustCacheError]) {
-            os_log(log, "Successfully performed full chain trust cache process for %@", bundleName);
-        } else {
-            os_log_error(log, "Error performing full chain trust cache process for %@. %{public}@", bundleName, trustCacheError);
 
-            *outError = trustCacheError;
-            return NO;
+        if (hasAppRegistrarMarker) {
+            os_log(log, "%@ has appregistrard marker, skipping personalization", bundleName);
+        } else {
+            NSURL *trustCacheURL = [bundle.bundleURL URLByAppendingPathComponent:@"trustcache.img4"];
+
+            TrustCacheFSRequest *request;
+
+            if ([NSFileManager.defaultManager fileExistsAtPath:trustCacheURL.path]) {
+                os_log(log, "Found trust cache for %{public}@, requesting load...", bundleName);
+
+                request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionLoad bundleURL:bundle.bundleURL trustCacheURL:trustCacheURL];
+            } else {
+                os_log(log, "No trust cache found, performing full chain for %@...", bundleName);
+
+                request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionFullChain bundleURL:bundle.bundleURL trustCacheURL:nil];
+            }
+
+            NSError *trustCacheError;
+            if ([request performAndWaitSyncAndReturnError:&trustCacheError]) {
+                os_log(log, "Successfully performed full chain trust cache process for %@", bundleName);
+            } else {
+                os_log_error(log, "Error performing full chain trust cache process for %@. %{public}@", bundleName, trustCacheError);
+
+                *outError = trustCacheError;
+                return NO;
+            }
         }
 
         if (!bundle) {

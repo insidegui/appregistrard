@@ -323,6 +323,8 @@ private extension URL {
 // MARK: - Inbox Copy
 
 private extension URL {
+    static let appregistrarMarkerFileName = AppRegistrarConstants.appregistrarMarkerFileName
+
     static var appregistrardInboxDirectory: URL {
         let url = URL(filePath: "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.installcoordinationd/Library/InstallCoordination/appregistrard")
         if !FileManager.default.fileExists(atPath: url.absoluteURL.path(percentEncoded: false)) {
@@ -342,6 +344,16 @@ private extension URL {
 
         let copyURL = copyContainer.appending(path: lastPathComponent)
         try FileManager.default.copyItem(at: self, to: copyURL)
+
+        if copyURL.isExistingDirectory {
+            let markerFileURL = copyURL.appending(path: Self.appregistrarMarkerFileName)
+            do {
+                try "appregistrard".write(to: markerFileURL, atomically: true, encoding: .utf8)
+                AppRegistration._logger.trace("Created marker file at \(markerFileURL.absoluteURL.path(percentEncoded: false))")
+            } catch {
+                AppRegistration._logger.warning("Failed to create marker file at \(markerFileURL.absoluteURL.path(percentEncoded: false), privacy: .public): \(error, privacy: .public)")
+            }
+        }
 
         let err = chown(copyURL.absoluteURL.path(percentEncoded: false), 501, 501)
         if err != 0 {

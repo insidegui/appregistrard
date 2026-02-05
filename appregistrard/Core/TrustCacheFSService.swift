@@ -7,14 +7,13 @@
  This is needed because the list of daemons that `installd` can talk to is limited by its sandbox profile, so it can't talk to `appregistrard`.
  Doing the whole trust cache creation and loading also requires lots of entitlements that `installd` doesn't have, so doing it in process is not an option either.
 
- The daemon definitely has read and write access to `/var/installd/Library/Caches/com.apple.mobile.installd.staging`,
- but it's possible that it can access anything under `/var/installd/Library`.
+ The daemon can access anything under `/var/installd/Library`.
 
  ## Architecture:
 
  - Upon receiving a request to validate the signature, `installd` (via `libAppRegistrarHooks`) writes a file describing the signing request
- - `appregistrard` observes the directory for these requests, and upon receiving one, creates and loads the trust cache
- - Once the trust cache has been successfully created and loaded `appregistrard` deletes the request file, which is the signal to `installd` that its work is done
+ - `appregistrard` observes the directory for these requests, and upon receiving one, creates, personalizes, and loads the trust cache
+ - Once the trust cache has been successfully loaded, `appregistrard` deletes the request file, which is the signal to `installd` that its work is done
  */
 
 import Foundation
@@ -22,7 +21,7 @@ import OSLog
 
 final class TrustCacheFSService: NSObject, NSFilePresenter {
     static let shared = TrustCacheFSService()
-    
+
     private override init() {
         super.init()
     }
