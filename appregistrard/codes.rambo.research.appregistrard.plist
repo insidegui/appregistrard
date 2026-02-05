@@ -15,6 +15,10 @@
 		<string>/usr/bin/appregistrard</string>
 		<string>daemon</string>
 	</array>
+	<key>MachServices</key>
+	<array>
+		<string>codes.rambo.research.appregistrard.service</string>
+	</array>
 	<key>LaunchEvents</key>
 	<dict>
 		<key>com.apple.xpc.activity</key>

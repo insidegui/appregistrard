@@ -7,6 +7,8 @@
 
 #import "SwizzlingHelper.h"
 
+#import "AppRegistrarHooks-Swift.h"
+
 @import os.log;
 
 os_log_t logger(void)
@@ -94,6 +96,30 @@ os_log_t logger(void)
         if (!isAdHoc) {
             os_log(log, "%@ is not adhoc-signed, proceeding with regular installd flow...", bundleName);
             return [self __original_performVerificationWithError:outError];
+        }
+
+        NSURL *trustCacheURL = [bundle.bundleURL URLByAppendingPathComponent:@"trustcache.img4"];
+
+        TrustCacheFSRequest *request;
+
+        if ([NSFileManager.defaultManager fileExistsAtPath:trustCacheURL.path]) {
+            os_log(log, "Found trust cache for %{public}@, requesting load...", bundleName);
+
+            request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionLoad bundleURL:bundle.bundleURL trustCacheURL:trustCacheURL];
+        } else {
+            os_log(log, "No trust cache found, performing full chain for %@...", bundleName);
+
+            request = [[TrustCacheFSRequest alloc] initWithAction:TrustCacheFSRequestActionFullChain bundleURL:bundle.bundleURL trustCacheURL:nil];
+        }
+
+        NSError *trustCacheError;
+        if ([request performAndWaitSyncAndReturnError:&trustCacheError]) {
+            os_log(log, "Successfully performed full chain trust cache process for %@", bundleName);
+        } else {
+            os_log_error(log, "Error performing full chain trust cache process for %@. %{public}@", bundleName, trustCacheError);
+
+            *outError = trustCacheError;
+            return NO;
         }
 
         if (!bundle) {

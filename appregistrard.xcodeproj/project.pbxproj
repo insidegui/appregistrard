@@ -27,31 +27,27 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		F4257EEE2F2D3A7300CA45C5 /* InstallCoordination.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */; };
 		F4414E5A2F314F27007076B5 /* libAppRegistrarHooks.dylib in Copy Dylib Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F4414E5F2F31519E007076B5 /* HookInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4414E5E2F315199007076B5 /* HookInjection.swift */; };
 		F44151EE2F327D44007076B5 /* LaunchKitLite in Frameworks */ = {isa = PBXBuildFile; productRef = F44151ED2F327D44007076B5 /* LaunchKitLite */; };
+		F46DE5602F35407300075351 /* TrustCacheGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = F46DE55F2F35407300075351 /* TrustCacheGenerator */; };
 		F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */; };
-		F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */; };
 		F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */; };
 		F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = F49C63B32C9E16CE00D1F207 /* ArgumentParser */; };
-		F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63B62C9E17EB00D1F207 /* String+Error.swift */; };
-		F49C63BE2C9E183D00D1F207 /* MobileContainerManager.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */; };
-		F49C63BF2C9E183D00D1F207 /* MobileInstallation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */; };
-		F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */; };
-		F49C63C12C9E183D00D1F207 /* CoreServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63B92C9E183D00D1F207 /* CoreServices.tbd */; };
-		F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */; };
 		F49C63CA2C9E188C00D1F207 /* ProcessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63C92C9E188C00D1F207 /* ProcessHelper.swift */; };
 		F49C63CC2C9E18A300D1F207 /* Jindo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63CB2C9E18A300D1F207 /* Jindo.swift */; };
 		F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */; };
 		F49C63D12C9E199400D1F207 /* CryptexObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D02C9E199400D1F207 /* CryptexObserver.swift */; };
 		F49C63D32C9E19A600D1F207 /* AppRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D22C9E19A600D1F207 /* AppRegistration.swift */; };
-		F49C63D52C9E19D600D1F207 /* PathHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D42C9E19D500D1F207 /* PathHelpers.swift */; };
 		F49C63D72C9E1A5500D1F207 /* DaemonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */; };
 		F49C63DB2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */; };
 		F49C63E52C9E2D9A00D1F207 /* appregistrard in Copy Binaries Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F49C63982C9E15DB00D1F207 /* appregistrard */; };
 		F49C63F62C9E338600D1F207 /* codes.rambo.research.appregistrard.plist in Copy Launch Daemon Plists Into Cryptex Root */ = {isa = PBXBuildFile; fileRef = F49C63AC2C9E15DE00D1F207 /* codes.rambo.research.appregistrard.plist */; };
 		F49C63FB2C9E362300D1F207 /* JetsamBypass.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C63F82C9E362300D1F207 /* JetsamBypass.m */; };
+		F4B821C72F3541EB00C59159 /* TrustCacheFSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B821C62F3541EB00C59159 /* TrustCacheFSService.swift */; };
+		F4CFF08D2F353B8600DD396F /* AuthInstallKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4CFF08C2F353B8600DD396F /* AuthInstallKit */; };
+		F4CFF08F2F353B8600DD396F /* DeviceIdentityKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4CFF08E2F353B8600DD396F /* DeviceIdentityKit */; };
+		F4CFF0912F353B8600DD396F /* TatsuKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4CFF0902F353B8600DD396F /* TatsuKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,24 +105,16 @@
 
 /* Begin PBXFileReference section */
 		F4257EEC2F2D38B100CA45C5 /* InstallCoordinationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstallCoordinationSPI.h; sourceTree = "<group>"; };
-		F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = InstallCoordination.tbd; sourceTree = "<group>"; };
 		F4414E0D2F314C60007076B5 /* libAppRegistrarHooks.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libAppRegistrarHooks.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4414E5E2F315199007076B5 /* HookInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookInjection.swift; sourceTree = "<group>"; };
 		F48E44922DC1098000673486 /* MobileKeyBagSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileKeyBagSPI.h; sourceTree = "<group>"; };
 		F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLockStateObserver.swift; sourceTree = "<group>"; };
-		F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileKeyBag.tbd; sourceTree = "<group>"; };
 		F49C63982C9E15DB00D1F207 /* appregistrard */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = appregistrard; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49C63A82C9E15DE00D1F207 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		F49C63AA2C9E15DE00D1F207 /* appregistrard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appregistrard.entitlements; sourceTree = "<group>"; };
 		F49C63AB2C9E15DE00D1F207 /* AppRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegistrar.swift; sourceTree = "<group>"; };
 		F49C63AC2C9E15DE00D1F207 /* codes.rambo.research.appregistrard.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = codes.rambo.research.appregistrard.plist; sourceTree = "<group>"; };
 		F49C63AD2C9E15DE00D1F207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F49C63B62C9E17EB00D1F207 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
-		F49C63B92C9E183D00D1F207 /* CoreServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = CoreServices.tbd; sourceTree = "<group>"; };
-		F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileContainerManager.tbd; sourceTree = "<group>"; };
-		F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = MobileInstallation.tbd; sourceTree = "<group>"; };
-		F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = RunningBoardServices.tbd; sourceTree = "<group>"; };
-		F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = SpringBoardServices.tbd; sourceTree = "<group>"; };
 		F49C63C32C9E185200D1F207 /* CoreServicesSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreServicesSPI.h; sourceTree = "<group>"; };
 		F49C63C42C9E185200D1F207 /* MobileContainerManagerSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileContainerManagerSPI.h; sourceTree = "<group>"; };
 		F49C63C52C9E185200D1F207 /* MobileInstallationSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileInstallationSPI.h; sourceTree = "<group>"; };
@@ -138,7 +126,6 @@
 		F49C63CE2C9E193F00D1F207 /* ResearchAppProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchAppProperties.swift; sourceTree = "<group>"; };
 		F49C63D02C9E199400D1F207 /* CryptexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexObserver.swift; sourceTree = "<group>"; };
 		F49C63D22C9E19A600D1F207 /* AppRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRegistration.swift; sourceTree = "<group>"; };
-		F49C63D42C9E19D500D1F207 /* PathHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHelpers.swift; sourceTree = "<group>"; };
 		F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonServer.swift; sourceTree = "<group>"; };
 		F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Cryptex.swift"; sourceTree = "<group>"; };
 		F49C63F42C9E328000D1F207 /* Cryptex.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cryptex.xcconfig; sourceTree = "<group>"; };
@@ -147,12 +134,28 @@
 		F49C63FA2C9E362300D1F207 /* libproc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libproc.h; sourceTree = "<group>"; };
 		F49C63FC2C9E362800D1F207 /* JetsamBypass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JetsamBypass.h; sourceTree = "<group>"; };
 		F49C63FD2C9E37FE00D1F207 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F4B821C62F3541EB00C59159 /* TrustCacheFSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustCacheFSService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F4414E0E2F314C60007076B5 /* AppRegistrarHooks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AppRegistrarHooks;
+			sourceTree = "<group>";
+		};
+		F452CA742F33DEBF00793439 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F4CFF0922F353B9500DD396F /* AppTrust */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppTrust;
+			sourceTree = "<group>";
+		};
+		F4CFF0A12F353C0500DD396F /* Stubs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -170,27 +173,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44151EE2F327D44007076B5 /* LaunchKitLite in Frameworks */,
-				F49C63BE2C9E183D00D1F207 /* MobileContainerManager.tbd in Frameworks */,
-				F49C63BF2C9E183D00D1F207 /* MobileInstallation.tbd in Frameworks */,
-				F49C63C02C9E183D00D1F207 /* SpringBoardServices.tbd in Frameworks */,
-				F49C63C12C9E183D00D1F207 /* CoreServices.tbd in Frameworks */,
-				F49C63C22C9E183D00D1F207 /* RunningBoardServices.tbd in Frameworks */,
-				F48E44982DC10A0C00673486 /* MobileKeyBag.tbd in Frameworks */,
+				F4CFF08F2F353B8600DD396F /* DeviceIdentityKit in Frameworks */,
 				F49C63B42C9E16CE00D1F207 /* ArgumentParser in Frameworks */,
-				F4257EEE2F2D3A7300CA45C5 /* InstallCoordination.tbd in Frameworks */,
+				F46DE5602F35407300075351 /* TrustCacheGenerator in Frameworks */,
+				F4CFF0912F353B8600DD396F /* TatsuKit in Frameworks */,
+				F4CFF08D2F353B8600DD396F /* AuthInstallKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F497DC312F35180E00CF55D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F49C638F2C9E15DB00D1F207 = {
 			isa = PBXGroup;
 			children = (
 				F49C63FD2C9E37FE00D1F207 /* README.md */,
+				F452CA742F33DEBF00793439 /* Shared */,
 				F49C63F32C9E327D00D1F207 /* config */,
 				F49C63AE2C9E15DE00D1F207 /* appregistrard */,
 				F4414E0E2F314C60007076B5 /* AppRegistrarHooks */,
+				F497DC312F35180E00CF55D6 /* Frameworks */,
 				F49C63992C9E15DB00D1F207 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -223,7 +232,8 @@
 		F49C63AE2C9E15DE00D1F207 /* appregistrard */ = {
 			isa = PBXGroup;
 			children = (
-				F49C63B82C9E182800D1F207 /* Stubs */,
+				F4CFF0922F353B9500DD396F /* AppTrust */,
+				F4CFF0A12F353C0500DD396F /* Stubs */,
 				F49C63A92C9E15DE00D1F207 /* Headers */,
 				F49C63B52C9E17E300D1F207 /* Core */,
 				F49C63CD2C9E193900D1F207 /* API */,
@@ -239,32 +249,17 @@
 			isa = PBXGroup;
 			children = (
 				F49C63F72C9E361D00D1F207 /* Jetsam */,
-				F49C63B62C9E17EB00D1F207 /* String+Error.swift */,
 				F49C63C92C9E188C00D1F207 /* ProcessHelper.swift */,
 				F49C63DA2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift */,
-				F49C63D42C9E19D500D1F207 /* PathHelpers.swift */,
 				F49C63CB2C9E18A300D1F207 /* Jindo.swift */,
 				F49C63D02C9E199400D1F207 /* CryptexObserver.swift */,
 				F48E44952DC109DE00673486 /* DeviceLockStateObserver.swift */,
 				F49C63D22C9E19A600D1F207 /* AppRegistration.swift */,
 				F49C63D62C9E1A4800D1F207 /* DaemonServer.swift */,
+				F4B821C62F3541EB00C59159 /* TrustCacheFSService.swift */,
 				F4414E5E2F315199007076B5 /* HookInjection.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		F49C63B82C9E182800D1F207 /* Stubs */ = {
-			isa = PBXGroup;
-			children = (
-				F49C63B92C9E183D00D1F207 /* CoreServices.tbd */,
-				F49C63BA2C9E183D00D1F207 /* MobileContainerManager.tbd */,
-				F49C63BB2C9E183D00D1F207 /* MobileInstallation.tbd */,
-				F49C63BC2C9E183D00D1F207 /* RunningBoardServices.tbd */,
-				F49C63BD2C9E183D00D1F207 /* SpringBoardServices.tbd */,
-				F48E44972DC10A0C00673486 /* MobileKeyBag.tbd */,
-				F4257EED2F2D3A7300CA45C5 /* InstallCoordination.tbd */,
-			);
-			path = Stubs;
 			sourceTree = "<group>";
 		};
 		F49C63CD2C9E193900D1F207 /* API */ = {
@@ -321,6 +316,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F4414E0E2F314C60007076B5 /* AppRegistrarHooks */,
+				F452CA742F33DEBF00793439 /* Shared */,
 			);
 			name = AppRegistrarHooks;
 			packageProductDependencies = (
@@ -341,10 +337,19 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				F452CA742F33DEBF00793439 /* Shared */,
+				F4CFF0922F353B9500DD396F /* AppTrust */,
+				F4CFF0A12F353C0500DD396F /* Stubs */,
+			);
 			name = appregistrard;
 			packageProductDependencies = (
 				F49C63B32C9E16CE00D1F207 /* ArgumentParser */,
 				F44151ED2F327D44007076B5 /* LaunchKitLite */,
+				F4CFF08C2F353B8600DD396F /* AuthInstallKit */,
+				F4CFF08E2F353B8600DD396F /* DeviceIdentityKit */,
+				F4CFF0902F353B8600DD396F /* TatsuKit */,
+				F46DE55F2F35407300075351 /* TrustCacheGenerator */,
 			);
 			productName = appregistrard;
 			productReference = F49C63982C9E15DB00D1F207 /* appregistrard */;
@@ -358,7 +363,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					F4414E0C2F314C60007076B5 = {
 						CreatedOnToolsVersion = 26.2;
@@ -384,6 +389,8 @@
 			packageReferences = (
 				F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 				F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */,
+				F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */,
+				F42B22CB2F353D580060E7A9 /* XCRemoteSwiftPackageReference "TrustCache" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F49C63992C9E15DB00D1F207 /* Products */;
@@ -424,11 +431,10 @@
 				F49C63AF2C9E15DE00D1F207 /* AppRegistrar.swift in Sources */,
 				F49C63CA2C9E188C00D1F207 /* ProcessHelper.swift in Sources */,
 				F49C63CC2C9E18A300D1F207 /* Jindo.swift in Sources */,
-				F49C63D52C9E19D600D1F207 /* PathHelpers.swift in Sources */,
 				F48E44962DC109DE00673486 /* DeviceLockStateObserver.swift in Sources */,
 				F49C63DB2C9E29F000D1F207 /* ProcessInfo+Cryptex.swift in Sources */,
-				F49C63B72C9E17FF00D1F207 /* String+Error.swift in Sources */,
 				F49C63CF2C9E193F00D1F207 /* ResearchAppProperties.swift in Sources */,
+				F4B821C72F3541EB00C59159 /* TrustCacheFSService.swift in Sources */,
 				F49C63D12C9E199400D1F207 /* CryptexObserver.swift in Sources */,
 				F4414E5F2F31519E007076B5 /* HookInjection.swift in Sources */,
 				F49C63D72C9E1A5500D1F207 /* DaemonServer.swift in Sources */,
@@ -454,20 +460,20 @@
 		F4414E192F314C60007076B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64e;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.AppRegistrarHooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = AppRegistrarHooks/Headers/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -475,19 +481,19 @@
 		F4414E1A2F314C60007076B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64e;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRODUCT_BUNDLE_IDENTIFIER = codes.rambo.research.AppRegistrarHooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 6.0;
+				SWIFT_OBJC_BRIDGING_HEADER = AppRegistrarHooks/Headers/BridgingHeader.h;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -503,6 +509,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appregistrard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appregistrard/Stubs",
@@ -532,6 +539,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appregistrard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appregistrard/Stubs",
@@ -554,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64e;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -618,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64e;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -733,6 +743,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F42B22CB2F353D580060E7A9 /* XCRemoteSwiftPackageReference "TrustCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/insidegui/TrustCache.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/insidegui/LaunchKit.git";
@@ -749,6 +767,14 @@
 				minimumVersion = 1.5.0;
 			};
 		};
+		F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:insidegui/TatsuKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -757,10 +783,30 @@
 			package = F44151EC2F327D44007076B5 /* XCRemoteSwiftPackageReference "LaunchKit" */;
 			productName = LaunchKitLite;
 		};
+		F46DE55F2F35407300075351 /* TrustCacheGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F42B22CB2F353D580060E7A9 /* XCRemoteSwiftPackageReference "TrustCache" */;
+			productName = TrustCacheGenerator;
+		};
 		F49C63B32C9E16CE00D1F207 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F49C63B22C9E16CE00D1F207 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
+		};
+		F4CFF08C2F353B8600DD396F /* AuthInstallKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */;
+			productName = AuthInstallKit;
+		};
+		F4CFF08E2F353B8600DD396F /* DeviceIdentityKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */;
+			productName = DeviceIdentityKit;
+		};
+		F4CFF0902F353B8600DD396F /* TatsuKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */;
+			productName = TatsuKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

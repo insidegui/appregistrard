@@ -1,5 +1,5 @@
 {
-  "originHash" : "a7f14bd4a38889a34ef28e3d304670a94ea3baab427bb3ec48d50b36943f50c3",
+  "originHash" : "991ba7844d474b682a064c5e8e03ca48fc76dc9e35081af8a8523c0d3c4426a0",
   "pins" : [
     {
       "identity" : "launchkit",
@@ -16,6 +16,24 @@
       "state" : {
         "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
         "version" : "1.5.0"
+      }
+    },
+    {
+      "identity" : "tatsukit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:insidegui/TatsuKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5b3906474fedf9a8653d0aa4f2a5ddc06f1ca411"
+      }
+    },
+    {
+      "identity" : "trustcache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/insidegui/TrustCache.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a37c1cfb71d7d64d632c8b416bd08d745886db2"
       }
     }
   ],

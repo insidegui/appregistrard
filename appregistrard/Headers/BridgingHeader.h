@@ -7,3 +7,4 @@
 #import "JetsamBypass.h"
 #import "MobileKeyBagSPI.h"
 #import "InstallCoordinationSPI.h"
+#import "../AppTrust/AMFIHelper.h"

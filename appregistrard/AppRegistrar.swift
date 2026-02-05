@@ -2,8 +2,6 @@ import Foundation
 import OSLog
 import ArgumentParser
 
-let kAppRegistrarSubsystem = "codes.rambo.research.appregistrard"
-
 let logger = Logger(subsystem: kAppRegistrarSubsystem, category: "Daemon")
 
 struct RegistrarOptions: ParsableArguments {

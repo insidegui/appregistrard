@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>get-task-allow</key>
+	<true/>
 	<key>com.apple.private.jetsam.modify-priority</key>
 	<true/>
 	<key>com.apple.private.kernel.jetsam</key>
@@ -132,8 +134,6 @@
 		<string>CheckCapabilitiesMatch</string>
 		<string>Browse</string>
 	</array>
-	<key>get-task-allow</key>
-	<true/>
 	<key>com.apple.private.xpc.launchd.userspace-reboot</key>
 	<true/>
 	<key>com.apple.private.xpc.persona-creator</key>
@@ -145,6 +145,79 @@
 	<key>com.apple.private.xpc.domain-extension</key>
 	<true/>
 	<key>com.apple.private.xpc.launchd.app-server</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.cryptex</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.cryptex1.generic</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.cryptex1.simulator</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.cryptex1.supplemental</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.ddi</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.ephemeral-cryptex</key>
+	<true/>
+	<key>com.apple.private.img4.nonce.pdi</key>
+	<true/>
+	<key>com.apple.private.pmap.load-trust-cache</key>
+	<array>
+		<string>global.pdi</string>
+		<string>personalized.cryptex-research</string>
+		<string>personalized.pdi</string>
+		<string>personalized.ddi</string>
+		<string>personalized.supplemental-persistent</string>
+		<string>personalized.supplemental-ephemeral</string>
+		<string>cryptex1.boot.os</string>
+		<string>cryptex1.boot.app</string>
+		<string>cryptex1.preboot.app</string>
+		<string>cryptex1.preboot.os</string>
+		<string>cryptex1.safari-downlevel</string>
+		<string>cryptex1.generic</string>
+		<string>cryptex1.generic.supplemental</string>
+		<string>personalized.engineering-root</string>
+		<string>personalized.trust-cache</string>
+		<string>personalized.ephemeral-cryptex</string>
+		<string>global.ota-update-brain</string>
+		<string>global.install-assistant</string>
+	</array>
+	<key>com.apple.private.security.AppleImage4.user-client</key>
+	<true/>
+	<key>com.apple.security.iokit-user-client-class</key>
+	<array>
+		<string>AppleImage4UserClient</string>
+		<string>AppleMobileFileIntegrityUserClient</string>
+		<string>IOHDIXControllerUserClient</string>
+	</array>
+	<key>application-identifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>com.apple.sh</key>
+	<true/>
+	<key>platform-application</key>
+	<true/>
+	<key>research.com.apple.license-to-operate</key>
+	<true/>
+	<key>com.apple.keystore.device</key>
+	<true/>
+	<key>com.apple.private.RemoteServiceDiscovery.device-admin</key>
+	<true/>
+	<key>com.apple.private.amfi.can-load-trust-cache</key>
+	<true/>
+	<key>com.apple.private.diskimages.kext.user-client-access</key>
+	<true/>
+	<key>com.apple.security.exception.files.absolute-path.read-write</key>
+	<array>
+		<string>/private/var/installd/Library/Caches/</string>
+	</array>
+	<key>com.apple.private.xpc.cryptex.terminate</key>
+	<true/>
+	<key>com.apple.private.xpc.launchd.job-manager</key>
+	<string>com.apple.security.cryptexd</string>
+	<key>com.apple.private.xpc.launchd.storage-mounter</key>
+	<true/>
+	<key>com.apple.rootless.volume.Preboot</key>
+	<true/>
+	<key>com.apple.research.securityresearchd-remote-xpc</key>
 	<true/>
 </dict>
 </plist>

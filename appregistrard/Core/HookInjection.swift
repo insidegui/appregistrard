@@ -65,12 +65,12 @@ struct HookInjection {
             logger.debug("Environment after hook injection: \(newEnv ?? "<nil>")")
         }
 
-        logger.debug("Kickstarting installd")
+        logger.notice("Kickstarting installd")
 
         do {
             let pid = try launchd.kickstart(service: "com.apple.mobile.installd")
 
-            logger.info("Kickstarted installd with pid \(pid, privacy: .public)")
+            logger.notice("Kickstarted installd with pid \(pid, privacy: .public)")
         } catch {
             logger.error("installd kickstart failed: \(error, privacy: .public)")
         }

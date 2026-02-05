@@ -44,6 +44,8 @@ final class DaemonServer {
     }
 
     private func activateAFU(applicationsPath: String) {
+        TrustCacheFSService.shared.activate()
+        
         do {
             /// Inject `libAppRegistrarHooks.dylib` into installd to allow ad-hoc signature validation.
             try HookInjection.enable()
