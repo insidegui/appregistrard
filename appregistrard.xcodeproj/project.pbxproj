@@ -769,7 +769,7 @@
 		};
 		F4CFF08B2F353B8600DD396F /* XCRemoteSwiftPackageReference "TatsuKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:insidegui/TatsuKit.git";
+			repositoryURL = "https://github.com/insidegui/TatsuKit.git";
 			requirement = {
 				branch = main;
 				kind = branch;

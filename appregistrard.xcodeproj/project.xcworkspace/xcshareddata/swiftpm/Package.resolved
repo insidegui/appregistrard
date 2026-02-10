@@ -1,5 +1,5 @@
 {
-  "originHash" : "991ba7844d474b682a064c5e8e03ca48fc76dc9e35081af8a8523c0d3c4426a0",
+  "originHash" : "6136aeee88e0ac5d10cd3819f8bbbab6d4066e4a9299ec639dac0faf1501b88c",
   "pins" : [
     {
       "identity" : "launchkit",
@@ -21,7 +21,7 @@
     {
       "identity" : "tatsukit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:insidegui/TatsuKit.git",
+      "location" : "https://github.com/insidegui/TatsuKit.git",
       "state" : {
         "branch" : "main",
         "revision" : "5b3906474fedf9a8653d0aa4f2a5ddc06f1ca411"
