@@ -2,7 +2,7 @@
 
 # App Registrar Daemon
 
-A daemon that can be installed to an SRD in order to allow for app installation within research cryptexes.
+This daemon is designed to be installed on an SRD, enabling app installations within research cryptexes. It also supports building and running ad-hoc signed apps directly from Xcode.
 
 ![screenshot](./screenshot.jpg)
 
@@ -18,9 +18,17 @@ Once installed, `appregistrard` runs as a daemon and:
 - Checks the `Applications` and `System/Applications` directories within mounted cryptexes
 - If found, installs any `.app` bundles found in those directories so that the apps can be launched from SpringBoard as usual
 
-Additionally, the daemon keeps running in the background and automatically installs any apps found in newly-installed cryptexes
+### Apps Inside Research Cryptexes
+
+The daemon keeps running in the background and automatically installs any apps found in newly-installed cryptexes
 so that you can easily have small individual cryptexes for different apps, and `appregistrard` will
 automatically make sure those apps are installed when the cryptexes are mounted.
+
+### Apps From Xcode
+
+The daemon will also generate, personalize, and load a trust cache for ad-hoc signed apps installed via Xcode, enabling building and running apps from Xcode with arbitrary entitlements.
+
+This feature requires the SRD to have an internet connection.
 
 ## Build / Install Daemon
 
