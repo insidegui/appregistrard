@@ -30,6 +30,10 @@ The daemon will also generate, personalize, and load a trust cache for ad-hoc si
 
 This feature requires the SRD to have an internet connection.
 
+#### Debugging Apps From Xcode
+
+Make sure your app has the `get-task-allow` entitlement so that the iOS `debugserver` is allowed to attach to it, otherwise you won't be able to attach to apps installed via Xcode.
+
 ## Build / Install Daemon
 
 You can build a cryptex with `appregistrard` and `libAppRegistrarHooks` from the Xcode project by building the "cryptex" scheme.
